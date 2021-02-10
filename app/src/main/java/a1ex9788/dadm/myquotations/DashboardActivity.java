@@ -19,10 +19,13 @@ public class DashboardActivity extends AppCompatActivity {
 
         switch (view.getId()) {
             case R.id.button_getQuotations:
+                // activityClass = GetQuotationsActivity.class;
                 break;
             case R.id.button_favouriteQuotations:
+                // activityClass = FavouriteQuotationsActivity.class;
                 break;
             case R.id.button_settings:
+                activityClass = SettingsActivity.class;
                 break;
             case R.id.button_about:
                 activityClass = AboutActivity.class;
