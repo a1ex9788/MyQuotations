@@ -22,7 +22,7 @@ public class DashboardActivity extends AppCompatActivity {
                 // activityClass = GetQuotationsActivity.class;
                 break;
             case R.id.button_favouriteQuotations:
-                // activityClass = FavouriteQuotationsActivity.class;
+                activityClass = FavouriteQuotationsActivity.class;
                 break;
             case R.id.button_settings:
                 activityClass = SettingsActivity.class;

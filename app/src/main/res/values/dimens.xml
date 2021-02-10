@@ -2,7 +2,5 @@
 <resources>
     <dimen name="dashboardButtons">24sp</dimen>
     <dimen name="labels">24sp</dimen>
-    <dimen name="ordinaryText">14sp</dimen>
-    <dimen name="editTexts">18sp</dimen>
     <dimen name="bigMessages">40sp</dimen>
 </resources>
