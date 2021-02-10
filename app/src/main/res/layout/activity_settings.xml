@@ -17,7 +17,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            android:text="@string/nameIdentification"
+            android:text="@string/textView_nameIdentification"
             android:textSize="@dimen/labels"
             app:layout_constraintBottom_toTopOf="@+id/editText_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:ems="10"
-            android:hint="@string/insertName"
+            android:hint="@string/editText_insertName"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:textSize="18sp"
@@ -50,7 +50,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            android:text="@string/quotationsLanguage"
+            android:text="@string/textView_quotationsLanguage"
             android:textSize="@dimen/labels"
             app:layout_constraintBottom_toTopOf="@+id/spinner_language"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            android:text="@string/httpMethod"
+            android:text="@string/textView_httpMethod"
             android:textSize="@dimen/labels"
             app:layout_constraintBottom_toTopOf="@+id/radioGroup"
             app:layout_constraintEnd_toEndOf="parent"
@@ -101,14 +101,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:checked="true"
-                android:text="@string/getHttpMethod"
+                android:text="@string/radioButton_getHttpMethod"
                 android:textSize="14sp" />
 
             <RadioButton
                 android:id="@+id/radioButton_post"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:text="@string/postHttpMethod"
+                android:text="@string/radioButton_postHttpMethod"
                 android:textSize="14sp" />
         </RadioGroup>
 
