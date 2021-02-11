@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="button_about">A cerca de</string>
+    <string name="button_authorInfo">Información del autor</string>
+    <string name="button_favouriteQuotations">Citas favoritas</string>
+    <string name="button_getQuotations">Obtener citas</string>
+    <string name="button_settings">Configuración</string>
+    <string name="editText_insertName">Escribe tu nombre</string>
+    <string name="imageView_developer">Una imagen del desarrollador</string>
+    <string name="imageView_refreshQuotation">Un botón para refrescar y obtener una nueva cita</string>
+    <string name="topBar_settings">Configuración</string>
+    <string name="topBar_randomQuotations">Citas aleatorias</string>
+    <string name="topBar_myQuotations">Mis citas</string>
+    <string name="topBar_favouriteQuotations">Citas favoritas</string>
+    <string name="topBar_about">A cerca de</string>
+    <string name="textView_sampleQuotation">Esta es una cita de ejempo</string>
+    <string name="textView_sampleActor">Este es un autor de ejemplo</string>
+    <string name="textView_quotationsLanguage">Las citas serán recibidas en el lenguaje seleccionado</string>
+    <string name="textView_noUserName">Sin nombre</string>
+    <string name="textView_nameIdentification">Nombre que identifica al usuario</string>
+    <string name="textView_httpMethod">Las peticiones web serán ejecutadas utilizando el método HTTP seleccionado</string>
+    <string name="textView_refreshQuotation">Hola %1s! Aprieta Refrescar para obtener una nueva cita</string>
+    <string name="textView_about">\"My Quotations\" hecho por\n\nAlejandro Carrión\n\nalcarsa5\n\n© DADM 2021</string>
+</resources>
