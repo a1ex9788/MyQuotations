@@ -5,6 +5,7 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <data android:scheme="https" />
         </intent>
     </queries>
@@ -35,6 +36,9 @@
         <activity
             android:name=".FavouriteQuotationsActivity"
             android:label="@string/topBar_favouriteQuotations" />
+        <activity
+            android:name=".RandomQuotationsActivity"
+            android:label="@string/topBar_randomQuotations" />
     </application>
 
 </manifest>
