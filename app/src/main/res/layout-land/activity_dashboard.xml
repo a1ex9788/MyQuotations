@@ -8,6 +8,8 @@
 
     <Button
         android:id="@+id/button_getQuotations"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -24,6 +26,8 @@
 
     <Button
         android:id="@+id/button_favouriteQuotations"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"
@@ -40,6 +44,8 @@
 
     <Button
         android:id="@+id/button_settings"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -56,6 +62,8 @@
 
     <Button
         android:id="@+id/button_about"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="4dp"

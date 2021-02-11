@@ -66,10 +66,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:contentDescription="@string/imageView_refreshQuotation"
         android:onClick="onClickRefreshButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_rotate"
-        android:contentDescription="@string/imageView_refreshQuotation" />
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
