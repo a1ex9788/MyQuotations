@@ -8,49 +8,65 @@
 
     <Button
         android:id="@+id/button_getQuotations"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
         android:onClick="onClickAnyButton"
         android:text="@string/button_getQuotations"
         android:textSize="@dimen/dashboardButtons"
+        app:layout_constraintBottom_toTopOf="@+id/button_settings"
+        app:layout_constraintEnd_toStartOf="@+id/button_favouriteQuotations"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_favouriteQuotations"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
         android:onClick="onClickAnyButton"
         android:text="@string/button_favouriteQuotations"
         android:textSize="@dimen/dashboardButtons"
+        app:layout_constraintBottom_toTopOf="@+id/button_about"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_getQuotations"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_settings"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
         android:onClick="onClickAnyButton"
         android:text="@string/button_settings"
         android:textSize="@dimen/dashboardButtons"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button_about"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_getQuotations" />
 
     <Button
         android:id="@+id/button_about"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:onClick="onClickAnyButton"
         android:text="@string/button_about"
         android:textSize="@dimen/dashboardButtons"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_settings"
+        app:layout_constraintTop_toBottomOf="@+id/button_favouriteQuotations" />
 </androidx.constraintlayout.widget.ConstraintLayout>
