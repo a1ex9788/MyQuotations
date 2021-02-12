@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dashboardButtons">24sp</dimen>
-    <dimen name="labels">24sp</dimen>
-    <dimen name="bigMessages">40sp</dimen>
+    <dimen name="dashboardButtons">22sp</dimen>
+    <dimen name="labels">22sp</dimen>
+    <dimen name="bigMessages">36sp</dimen>
 </resources>
