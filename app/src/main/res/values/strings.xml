@@ -23,4 +23,6 @@
     <string name="textView_sampleActor">This is a sample autor</string>
     <string name="textView_noUserName">Nameless one</string>
     <string name="imageView_refreshQuotation">A button to refresh and get a new quotation</string>
+    <string name="spinner_english">English</string>
+    <string name="spinner_russian">Russian</string>
 </resources>

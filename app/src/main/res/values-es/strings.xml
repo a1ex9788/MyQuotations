@@ -21,4 +21,6 @@
     <string name="textView_httpMethod">Las peticiones web serán ejecutadas utilizando el método HTTP seleccionado</string>
     <string name="textView_refreshQuotation">Hola %1s! Aprieta Refrescar para obtener una nueva cita</string>
     <string name="textView_about">\"My Quotations\" hecho por\nAlejandro Carrión\nalcarsa5\n© DADM 2021</string>
+    <string name="spinner_english">Inglés</string>
+    <string name="spinner_russian">Ruso</string>
 </resources>

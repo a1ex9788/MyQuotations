@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="spinner_languages">
+        <item>@string/spinner_english</item>
+        <item>@string/spinner_russian</item>
+    </array>
+</resources>
