@@ -27,4 +27,7 @@
     <string name="spinner_russian">Russian</string>
     <string name="toast_noAuthor">It is not possible to obtain the author information</string>
     <string name="url_wikipedia">https://en.wikipedia.org/wiki/Special:Search?search=</string>
+    <string name="dialog_deleteQuotation">Are you sure you want to delete this quotation?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
 </resources>

@@ -17,21 +17,28 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
 
     private static List<Quotation> favouriteQuotations;
     private IOnItemClickListener onItemClickListener;
+    private IOnItemLongClickListener onItemLongClickListener;
 
-    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations, IOnItemClickListener onItemClickListener) {
+    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations, IOnItemClickListener onItemClickListener, IOnItemLongClickListener onItemLongClickListener) {
         this.favouriteQuotations = favouriteQuotations;
         this.onItemClickListener = onItemClickListener;
+        this.onItemLongClickListener = onItemLongClickListener;
     }
 
     public static Quotation getQuotation(int position) {
         return favouriteQuotations.get(position);
     }
 
+    public void removeQuotation(int position) {
+        favouriteQuotations.remove(position);
+        notifyItemRemoved(position);
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.quotation_list_row, parent, false);
-        return new FavouriteQuotationsAdapter.ViewHolder(view, view.findViewById(R.id.textView_quoteText), view.findViewById(R.id.textView_quoteAuthor), onItemClickListener);
+        return new FavouriteQuotationsAdapter.ViewHolder(view, view.findViewById(R.id.textView_quoteText), view.findViewById(R.id.textView_quoteAuthor), onItemClickListener, onItemLongClickListener);
     }
 
     @Override
@@ -51,17 +58,28 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
 
     }
 
+    public interface IOnItemLongClickListener {
+
+        void onItemLongClickListener(int position);
+
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView quoteText, quoteAuthor;
 
-        public ViewHolder(@NonNull View itemView, TextView quoteText, TextView quoteAuthor, IOnItemClickListener onItemClickListener) {
+        public ViewHolder(@NonNull View itemView, TextView quoteText, TextView quoteAuthor, IOnItemClickListener onItemClickListener, IOnItemLongClickListener onItemLongClickListener) {
             super(itemView);
             this.quoteText = quoteText;
             this.quoteAuthor = quoteAuthor;
 
             itemView.setOnClickListener(v -> {
                 onItemClickListener.onItemClickListener(getAdapterPosition());
+            });
+
+            itemView.setOnLongClickListener(v -> {
+                onItemLongClickListener.onItemLongClickListener(getAdapterPosition());
+                return false;
             });
         }
 

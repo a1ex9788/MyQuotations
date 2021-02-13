@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,10 +33,12 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(new FavouriteQuotationsAdapter(getMockQuotations(), position -> {
             showAuthorInfo(FavouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
+        }, position -> {
+            showDeleteDialog();
         }));
     }
 
-    public void showAuthorInfo(String authorName) {
+    private void showAuthorInfo(String authorName) {
         authorName = URLEncoder.encode(authorName);
 
         if (authorName == null || authorName.isEmpty()) {
@@ -54,7 +57,18 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         }
     }
 
-    public ArrayList<Quotation> getMockQuotations() {
+    private void showDeleteDialog() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(R.string.dialog_deleteQuotation);
+        alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
+
+        });
+        alert.setNegativeButton(R.string.dialog_no, null);
+
+        alert.create().show();
+    }
+
+    private ArrayList<Quotation> getMockQuotations() {
         return new ArrayList<>(Arrays.asList(
                 new Quotation("Quotation 1", "Berta Escobar"),
                 new Quotation("Quotation 2", ""),

@@ -25,4 +25,7 @@
     <string name="spinner_russian">Ruso</string>
     <string name="toast_noAuthor">No es posible obtener información del autor</string>
     <string name="url_wikipedia">https://es.wikipedia.org/wiki/Special:Search?search=</string>
+    <string name="dialog_deleteQuotation">¿Está seguro de que quiere borrar esta cita?</string>
+    <string name="dialog_yes">Sí</string>
+    <string name="dialog_no">No</string>
 </resources>
