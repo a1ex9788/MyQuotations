@@ -15,17 +15,15 @@ import a1ex9788.dadm.myquotations.model.Quotation;
 
 public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQuotationsAdapter.ViewHolder> {
 
-    private static List<Quotation> favouriteQuotations;
-    private IOnItemClickListener onItemClickListener;
-    private IOnItemLongClickListener onItemLongClickListener;
+    public IOnItemClickListener onItemClickListener;
+    public IOnItemLongClickListener onItemLongClickListener;
+    private List<Quotation> favouriteQuotations;
 
-    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations, IOnItemClickListener onItemClickListener, IOnItemLongClickListener onItemLongClickListener) {
+    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations) {
         this.favouriteQuotations = favouriteQuotations;
-        this.onItemClickListener = onItemClickListener;
-        this.onItemLongClickListener = onItemLongClickListener;
     }
 
-    public static Quotation getQuotation(int position) {
+    public Quotation getQuotation(int position) {
         return favouriteQuotations.get(position);
     }
 

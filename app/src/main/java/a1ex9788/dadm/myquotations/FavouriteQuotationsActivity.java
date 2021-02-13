@@ -31,11 +31,14 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView_favouriteQuotations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(new FavouriteQuotationsAdapter(getMockQuotations(), position -> {
-            showAuthorInfo(FavouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
-        }, position -> {
-            showDeleteDialog();
-        }));
+        FavouriteQuotationsAdapter favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(getMockQuotations());
+        favouriteQuotationsAdapter.onItemClickListener = position -> {
+            showAuthorInfo(favouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
+        };
+        favouriteQuotationsAdapter.onItemLongClickListener = position -> {
+            showDeleteDialog(favouriteQuotationsAdapter, position);
+        };
+        recyclerView.setAdapter(favouriteQuotationsAdapter);
     }
 
     private void showAuthorInfo(String authorName) {
@@ -57,11 +60,11 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         }
     }
 
-    private void showDeleteDialog() {
+    private void showDeleteDialog(FavouriteQuotationsAdapter favouriteQuotationsAdapter, int position) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(R.string.dialog_deleteQuotation);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
-
+            favouriteQuotationsAdapter.removeQuotation(position);
         });
         alert.setNegativeButton(R.string.dialog_no, null);
 
