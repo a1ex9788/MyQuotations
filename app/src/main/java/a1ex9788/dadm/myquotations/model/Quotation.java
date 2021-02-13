@@ -24,4 +24,5 @@ public class Quotation {
     public void setQuoteAuthor(String quoteAuthor) {
         this.quoteAuthor = quoteAuthor;
     }
+
 }

@@ -1,19 +1,17 @@
 package a1ex9788.dadm.myquotations;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,16 +57,17 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
 
     public ArrayList<Quotation> getMockQuotations() {
         return new ArrayList<>(Arrays.asList(
-            new Quotation("Quotation 1", "Berta Escobar"),
-            new Quotation("Quotation 2", ""),
-            new Quotation("Quotation 3", "Ignatius Farray"),
-            new Quotation("Quotation 4", "Berto Romero"),
-            new Quotation("Quotation 5", "Enrique Pastor"),
-            new Quotation("Quotation 6", "Santiago Segura"),
-            new Quotation("Quotation 7", "Juan del Val"),
-            new Quotation("Quotation 8", "Nuria Roca"),
-            new Quotation("Quotation 9", "Pablo Motos"),
-            new Quotation("Quotation 10", "David Broncano")
+                new Quotation("Quotation 1", "Berta Escobar"),
+                new Quotation("Quotation 2", ""),
+                new Quotation("Quotation 3", "Ignatius Farray"),
+                new Quotation("Quotation 4", "Berto Romero"),
+                new Quotation("Quotation 5", "Enrique Pastor"),
+                new Quotation("Quotation 6", "Santiago Segura"),
+                new Quotation("Quotation 7", "Juan del Val"),
+                new Quotation("Quotation 8", "Nuria Roca"),
+                new Quotation("Quotation 9", "Pablo Motos"),
+                new Quotation("Quotation 10", "David Broncano")
         ));
     }
+
 }

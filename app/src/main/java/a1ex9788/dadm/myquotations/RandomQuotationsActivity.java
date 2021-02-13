@@ -1,10 +1,10 @@
 package a1ex9788.dadm.myquotations;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class RandomQuotationsActivity extends AppCompatActivity {
 
@@ -24,4 +24,5 @@ public class RandomQuotationsActivity extends AppCompatActivity {
         TextView textView_author = findViewById(R.id.textView_author);
         textView_author.setText(R.string.textView_sampleActor);
     }
+
 }

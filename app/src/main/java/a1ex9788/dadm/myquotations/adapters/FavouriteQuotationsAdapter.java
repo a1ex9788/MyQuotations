@@ -1,6 +1,5 @@
 package a1ex9788.dadm.myquotations.adapters;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +23,10 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
         this.onItemClickListener = onItemClickListener;
     }
 
+    public static Quotation getQuotation(int position) {
+        return favouriteQuotations.get(position);
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -42,8 +45,10 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
         return favouriteQuotations.size();
     }
 
-    public static Quotation getQuotation(int position) {
-        return favouriteQuotations.get(position);
+    public interface IOnItemClickListener {
+
+        void onItemClickListener(int position);
+
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,10 +65,6 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
             });
         }
 
-    }
-
-    public interface IOnItemClickListener {
-        void onItemClickListener(int position);
     }
 
 }
