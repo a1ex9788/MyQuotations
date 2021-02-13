@@ -11,8 +11,10 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,19 +29,26 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite_quotations);
 
-        FavouriteQuotationsAdapter favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(getMockQuotations());
+        FavouriteQuotationsAdapter favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(getMockQuotations(), position -> {
+            showAuthorInfo(FavouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
+        });
         RecyclerView recyclerView = findViewById(R.id.recyclerView_favouriteQuotations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setAdapter(favouriteQuotationsAdapter);
     }
 
-    public void onClickAuthorInfo(View view) {
-        String authorName = "Santiago_Segura";
+    public void showAuthorInfo(String authorName) {
+        authorName = URLEncoder.encode(authorName);
+
+        if (authorName == null || authorName.isEmpty()) {
+            Toast.makeText(this, R.string.toast_noAuthor, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://en.wikipedia.org/wiki/" + authorName));
+        intent.setData(Uri.parse(getString(R.string.url_wikipedia) + authorName));
 
         // Check that there exists an Activity able to manage that Intent
         List<ResolveInfo> activities = getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
@@ -50,16 +59,16 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
 
     public ArrayList<Quotation> getMockQuotations() {
         return new ArrayList<>(Arrays.asList(
-            new Quotation("Quotation 1", "Author 1"),
-            new Quotation("Quotation 2", "Author 2"),
-            new Quotation("Quotation 3", "Author 3"),
-            new Quotation("Quotation 4", "Author 4"),
-            new Quotation("Quotation 5", "Author 5"),
-            new Quotation("Quotation 6", "Author 6"),
-            new Quotation("Quotation 7", "Author 7"),
-            new Quotation("Quotation 8", "Author 8"),
-            new Quotation("Quotation 9", "Author 9"),
-            new Quotation("Quotation 10", "Author 10")
+            new Quotation("Quotation 1", "Berta Escobar"),
+            new Quotation("Quotation 2", ""),
+            new Quotation("Quotation 3", "Ignatius Farray"),
+            new Quotation("Quotation 4", "Berto Romero"),
+            new Quotation("Quotation 5", "Enrique Pastor"),
+            new Quotation("Quotation 6", "Santiago Segura"),
+            new Quotation("Quotation 7", "Juan del Val"),
+            new Quotation("Quotation 8", "Nuria Roca"),
+            new Quotation("Quotation 9", "Pablo Motos"),
+            new Quotation("Quotation 10", "David Broncano")
         ));
     }
 }

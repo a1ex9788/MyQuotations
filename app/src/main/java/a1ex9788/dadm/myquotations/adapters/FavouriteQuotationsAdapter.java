@@ -1,5 +1,6 @@
 package a1ex9788.dadm.myquotations.adapters;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +16,19 @@ import a1ex9788.dadm.myquotations.model.Quotation;
 
 public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQuotationsAdapter.ViewHolder> {
 
-    private List<Quotation> favouriteQuotations;
+    private static List<Quotation> favouriteQuotations;
+    private IOnItemClickListener onItemClickListener;
 
-    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations) {
+    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations, FavouriteQuotationsAdapter.IOnItemClickListener onItemClickListener) {
         this.favouriteQuotations = favouriteQuotations;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.quotation_list_row, parent, false);
-        return new FavouriteQuotationsAdapter.ViewHolder(view, view.findViewById(R.id.textView_quoteText), view.findViewById(R.id.textView_quoteAuthor));
+        return new FavouriteQuotationsAdapter.ViewHolder(view, view.findViewById(R.id.textView_quoteText), view.findViewById(R.id.textView_quoteAuthor), onItemClickListener);
     }
 
     @Override
@@ -39,16 +42,28 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
         return favouriteQuotations.size();
     }
 
+    public static Quotation getQuotation(int position) {
+        return favouriteQuotations.get(position);
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView quoteText, quoteAuthor;
 
-        public ViewHolder(@NonNull View itemView, TextView quoteText, TextView quoteAuthor) {
+        public ViewHolder(@NonNull View itemView, TextView quoteText, TextView quoteAuthor, FavouriteQuotationsAdapter.IOnItemClickListener onItemClickListener) {
             super(itemView);
             this.quoteText = quoteText;
             this.quoteAuthor = quoteAuthor;
+
+            itemView.setOnClickListener(v -> {
+                onItemClickListener.onItemClickListener(getAdapterPosition());
+            });
         }
 
+    }
+
+    public interface IOnItemClickListener {
+        void onItemClickListener(int position);
     }
 
 }

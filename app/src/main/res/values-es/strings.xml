@@ -23,4 +23,6 @@
     <string name="textView_about">\"My Quotations\" hecho por\nAlejandro Carrión\nalcarsa5\n© DADM 2021</string>
     <string name="spinner_english">Inglés</string>
     <string name="spinner_russian">Ruso</string>
+    <string name="toast_noAuthor">No es posible obtener información del autor</string>
+    <string name="url_wikipedia">https://es.wikipedia.org/wiki/Special:Search?search=</string>
 </resources>

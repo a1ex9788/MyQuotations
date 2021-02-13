@@ -25,4 +25,6 @@
     <string name="imageView_refreshQuotation">A button to refresh and get a new quotation</string>
     <string name="spinner_english">English</string>
     <string name="spinner_russian">Russian</string>
+    <string name="toast_noAuthor">It is not possible to obtain the author information</string>
+    <string name="url_wikipedia">https://en.wikipedia.org/wiki/Special:Search?search=</string>
 </resources>
