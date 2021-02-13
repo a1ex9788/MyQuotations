@@ -18,7 +18,7 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
     private static List<Quotation> favouriteQuotations;
     private IOnItemClickListener onItemClickListener;
 
-    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations, FavouriteQuotationsAdapter.IOnItemClickListener onItemClickListener) {
+    public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations, IOnItemClickListener onItemClickListener) {
         this.favouriteQuotations = favouriteQuotations;
         this.onItemClickListener = onItemClickListener;
     }
@@ -55,7 +55,7 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
 
         private TextView quoteText, quoteAuthor;
 
-        public ViewHolder(@NonNull View itemView, TextView quoteText, TextView quoteAuthor, FavouriteQuotationsAdapter.IOnItemClickListener onItemClickListener) {
+        public ViewHolder(@NonNull View itemView, TextView quoteText, TextView quoteAuthor, IOnItemClickListener onItemClickListener) {
             super(itemView);
             this.quoteText = quoteText;
             this.quoteAuthor = quoteAuthor;

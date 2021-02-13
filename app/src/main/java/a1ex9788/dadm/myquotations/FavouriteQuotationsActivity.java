@@ -27,13 +27,12 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite_quotations);
 
-        FavouriteQuotationsAdapter favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(getMockQuotations(), position -> {
-            showAuthorInfo(FavouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
-        });
         RecyclerView recyclerView = findViewById(R.id.recyclerView_favouriteQuotations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        recyclerView.setAdapter(favouriteQuotationsAdapter);
+        recyclerView.setAdapter(new FavouriteQuotationsAdapter(getMockQuotations(), position -> {
+            showAuthorInfo(FavouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
+        }));
     }
 
     public void showAuthorInfo(String authorName) {
