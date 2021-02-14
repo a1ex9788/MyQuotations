@@ -28,4 +28,6 @@
     <string name="dialog_no">No</string>
     <string name="menu_add">Añadir</string>
     <string name="menu_refresh">Refrescar</string>
+    <string name="menu_deleteAll">Borrar todas</string>
+    <string name="dialog_deleteAllQuotations">¿Está seguro de que quiere borrar TODAS sus citas favoritas?</string>
 </resources>

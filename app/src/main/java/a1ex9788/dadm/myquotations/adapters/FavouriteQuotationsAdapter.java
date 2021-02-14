@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import a1ex9788.dadm.myquotations.R;
@@ -20,7 +21,11 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
     private List<Quotation> favouriteQuotations;
 
     public FavouriteQuotationsAdapter(List<Quotation> favouriteQuotations) {
-        this.favouriteQuotations = favouriteQuotations;
+        if (favouriteQuotations == null) {
+            this.favouriteQuotations = new ArrayList();
+        } else {
+            this.favouriteQuotations = favouriteQuotations;
+        }
     }
 
     public Quotation getQuotation(int position) {
@@ -30,6 +35,11 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
     public void removeQuotation(int position) {
         favouriteQuotations.remove(position);
         notifyItemRemoved(position);
+    }
+
+    public void removeAllQuotations() {
+        favouriteQuotations.clear();
+        notifyDataSetChanged();
     }
 
     @Override

@@ -20,7 +20,7 @@ public class RandomQuotationsActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.random_quotations, menu);
         return true;
     }
 
