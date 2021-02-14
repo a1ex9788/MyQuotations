@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -10,13 +11,13 @@
 
         <TextView
             android:id="@+id/textView_name"
+            style="@style/SettingsActivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            style="@style/SettingsActivity"
             android:text="@string/textView_nameIdentification"
             app:layout_constraintBottom_toTopOf="@+id/editText_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,13 +44,13 @@
 
         <TextView
             android:id="@+id/textView_language"
+            style="@style/SettingsActivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            style="@style/SettingsActivity"
             android:text="@string/textView_quotationsLanguage"
             app:layout_constraintBottom_toTopOf="@+id/spinner_language"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,13 +73,13 @@
 
         <TextView
             android:id="@+id/textView_httpMethod"
+            style="@style/SettingsActivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
-            style="@style/SettingsActivity"
             android:text="@string/textView_httpMethod"
             app:layout_constraintBottom_toTopOf="@+id/radioGroup"
             app:layout_constraintEnd_toEndOf="parent"
