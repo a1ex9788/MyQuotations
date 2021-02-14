@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="button_about">A cerca de</string>
-    <string name="button_authorInfo">Información del autor</string>
     <string name="button_favouriteQuotations">Citas favoritas</string>
     <string name="button_getQuotations">Obtener citas</string>
     <string name="button_settings">Configuración</string>
     <string name="editText_insertName">Escribe tu nombre</string>
     <string name="imageView_developer">Una imagen del desarrollador</string>
-    <string name="imageView_refreshQuotation">Un botón para refrescar y obtener una nueva cita</string>
     <string name="topBar_settings">Configuración</string>
     <string name="topBar_randomQuotations">Citas aleatorias</string>
     <string name="topBar_myQuotations">Mis citas</string>
@@ -28,4 +26,6 @@
     <string name="dialog_deleteQuotation">¿Está seguro de que quiere borrar esta cita?</string>
     <string name="dialog_yes">Sí</string>
     <string name="dialog_no">No</string>
+    <string name="menu_add">Añadir</string>
+    <string name="menu_refresh">Refrescar</string>
 </resources>
