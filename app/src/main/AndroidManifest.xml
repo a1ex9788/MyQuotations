@@ -29,16 +29,36 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/topBar_settings"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:parentActivityName=".DashboardActivity"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
         <activity
             android:name=".AboutActivity"
-            android:label="@string/topBar_about" />
+            android:label="@string/topBar_about"
+            android:parentActivityName=".DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
         <activity
             android:name=".FavouriteQuotationsActivity"
-            android:label="@string/topBar_favouriteQuotations" />
+            android:label="@string/topBar_favouriteQuotations"
+            android:parentActivityName=".DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
         <activity
             android:name=".RandomQuotationsActivity"
-            android:label="@string/topBar_randomQuotations" />
+            android:label="@string/topBar_randomQuotations"
+            android:parentActivityName=".DashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DashboardActivity" />
+        </activity>
     </application>
 
 </manifest>
