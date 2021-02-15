@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView_name"
+            android:id="@+id/textView_userName"
             style="@style/SettingsActivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -19,13 +19,13 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="4dp"
             android:text="@string/textView_nameIdentification"
-            app:layout_constraintBottom_toTopOf="@+id/editText_name"
+            app:layout_constraintBottom_toTopOf="@+id/editText_userName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText_name"
+            android:id="@+id/editText_userName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textView_language"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_name" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_userName" />
 
         <TextView
             android:id="@+id/textView_language"
@@ -55,7 +55,7 @@
             app:layout_constraintBottom_toTopOf="@+id/spinner_language"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText_name" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_userName" />
 
         <Spinner
             android:id="@+id/spinner_language"

@@ -1,11 +1,13 @@
 package a1ex9788.dadm.myquotations;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 public class RandomQuotationsActivity extends AppCompatActivity {
 
@@ -14,8 +16,11 @@ public class RandomQuotationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_quotations);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String userName = preferences.getString(SettingsActivity.USER_NAME_KEY, "");
+        userName = userName.isEmpty() ? getString(R.string.textView_noUserName) : userName;
         TextView textView_quotation = findViewById(R.id.textView_quotation);
-        textView_quotation.setText(String.format(getString(R.string.textView_refreshQuotation), getString(R.string.textView_noUserName)));
+        textView_quotation.setText(String.format(getString(R.string.textView_refreshQuotation), userName));
     }
 
     @Override
