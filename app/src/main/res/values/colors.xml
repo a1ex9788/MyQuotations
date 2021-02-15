@@ -5,8 +5,10 @@
     <color name="background">#FFE8CE</color>
     <color name="colorPrimary">#FFA643</color>
     <color name="colorPrimaryDark">#E57900</color>
+    <color name="colorOnPrimary">@color/white</color>
     <color name="colorAccent">#6D767F</color>
     <color name="colorSecondary">#03DAC5</color>
     <color name="colorSecondaryDark">#018786</color>
+    <color name="colorOnSecondary">@color/black</color>
     <color name="author">#588DFF</color>
 </resources>
