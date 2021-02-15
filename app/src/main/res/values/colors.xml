@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="background">#FFFDEDFF</color>
-    <color name="colorPrimary">#FFBB86FC</color>
-    <color name="colorPrimaryDark">#AB3BD1</color>
-    <color name="colorAccent">#FF6D767F</color>
-    <color name="colorSecondary">#FF03DAC5</color>
-    <color name="colorSecondaryDark">#FF018786</color>
-    <color name="author">#FFFFA643</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background">#FFE8CE</color>
+    <color name="colorPrimary">#FFA643</color>
+    <color name="colorPrimaryDark">#E57900</color>
+    <color name="colorAccent">#6D767F</color>
+    <color name="colorSecondary">#03DAC5</color>
+    <color name="colorSecondaryDark">#018786</color>
+    <color name="author">#BB86FC</color>
 </resources>
