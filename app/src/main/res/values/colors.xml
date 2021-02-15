@@ -8,4 +8,5 @@
     <color name="colorAccent">#FF6D767F</color>
     <color name="colorSecondary">#FF03DAC5</color>
     <color name="colorSecondaryDark">#FF018786</color>
+    <color name="author">#FFFFA643</color>
 </resources>
