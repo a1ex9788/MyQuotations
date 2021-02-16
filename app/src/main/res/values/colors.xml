@@ -7,8 +7,8 @@
     <color name="colorPrimaryDark">#E57900</color>
     <color name="colorOnPrimary">@color/white</color>
     <color name="colorAccent">#D1D1D1</color>
-    <color name="colorSecondary">#03DAC5</color>
-    <color name="colorSecondaryDark">#018786</color>
+    <color name="colorSecondary">#12C65C</color>
+    <color name="colorSecondaryDark">#029382</color>
     <color name="colorOnSecondary">@color/black</color>
-    <color name="author">#588DFF</color>
+    <color name="author">@color/colorSecondaryDark</color>
 </resources>

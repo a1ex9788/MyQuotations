@@ -17,7 +17,7 @@ public class RandomQuotationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_random_quotations);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        String userName = preferences.getString(SettingsActivity.USER_NAME_KEY, "");
+        String userName = preferences.getString(getString(R.string.settingsKey_userName), "");
         userName = userName.isEmpty() ? getString(R.string.textView_noUserName) : userName;
         TextView textView_quotation = findViewById(R.id.textView_quotation);
         textView_quotation.setText(String.format(getString(R.string.textView_refreshQuotation), userName));

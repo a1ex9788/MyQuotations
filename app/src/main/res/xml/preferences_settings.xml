@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue=""
+        android:key="@string/settingsKey_userName"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:summary="@string/settingSummary_nameIdentification"
+        android:title="@string/settingsTitle_userName" />
+    <PreferenceCategory android:title="@string/settingsCategoryTitle_webService">
+
+        <ListPreference
+            android:defaultValue="@string/settingsOption_englishQuotationsLanguage"
+            android:entries="@array/array_quotationsLanguages"
+            android:entryValues="@array/array_quotationsLanguages_int"
+            android:key="@string/settingsKey_quotationsLanguage"
+            android:summary="@string/settingSummary_quotationsLanguage"
+            android:title="@string/settingsTitle_quotationsLanguage" />
+        <ListPreference
+            android:defaultValue="@string/settingsOption_getHttpMethod"
+            android:entries="@array/array_HttpMethods"
+            android:entryValues="@array/array_HttpMethods_int"
+            android:key="@string/settingsKey_httpMethod"
+            android:summary="@string/settingSummary_httpMethod"
+            android:title="@string/settingsTitle_httpMethod" />
+    </PreferenceCategory>
+</PreferenceScreen>

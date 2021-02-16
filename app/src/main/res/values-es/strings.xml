@@ -13,14 +13,14 @@
     <string name="topBar_about">A cerca de</string>
     <string name="textView_sampleQuotation">Esta es una cita de ejempo</string>
     <string name="textView_sampleActor">Este es un autor de ejemplo</string>
-    <string name="textView_quotationsLanguage">Las citas serán recibidas en el lenguaje seleccionado</string>
+    <string name="settingSummary_quotationsLanguage">Las citas serán recibidas en el lenguaje seleccionado</string>
     <string name="textView_noUserName">Sin nombre</string>
-    <string name="textView_nameIdentification">Nombre que identifica al usuario</string>
-    <string name="textView_httpMethod">Las peticiones web serán ejecutadas utilizando el método HTTP seleccionado</string>
+    <string name="settingSummary_nameIdentification">Nombre que identifica al usuario</string>
+    <string name="settingSummary_httpMethod">Las peticiones web serán ejecutadas utilizando el método HTTP seleccionado</string>
     <string name="textView_refreshQuotation">Hola %1s! Aprieta Refrescar para obtener una nueva cita</string>
     <string name="textView_about">\"My Quotations\" hecho por\nAlejandro Carrión\nalcarsa5\n© DADM 2021</string>
-    <string name="spinner_english">Inglés</string>
-    <string name="spinner_russian">Ruso</string>
+    <string name="settingsOption_englishQuotationsLanguage">Inglés</string>
+    <string name="settingsOption_russianQuotationsLanguage">Ruso</string>
     <string name="toast_noAuthor">No es posible obtener información del autor</string>
     <string name="url_wikipedia">https://es.wikipedia.org/wiki/Special:Search?search=</string>
     <string name="dialog_deleteQuotation">¿Está seguro de que quiere borrar esta cita?</string>
@@ -30,4 +30,8 @@
     <string name="menu_refresh">Refrescar</string>
     <string name="menu_deleteAll">Borrar todas</string>
     <string name="dialog_deleteAllQuotations">¿Está seguro de que quiere borrar TODAS sus citas favoritas?</string>
+    <string name="settingsTitle_userName">Nombre de usuario</string>
+    <string name="settingsTitle_quotationsLanguage">Idioma de las citas</string>
+    <string name="settingsTitle_httpMethod">Método HTTP</string>
+    <string name="settingsCategoryTitle_webService">Servicio web</string>
 </resources>

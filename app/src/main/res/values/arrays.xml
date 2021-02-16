@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="spinner_languages">
-        <item>@string/spinner_english</item>
-        <item>@string/spinner_russian</item>
+    <!-- Use the same strings for the visual and intern representation in order to simplify them -->
+    <array name="array_quotationsLanguages">
+        <item>@string/settingsOption_englishQuotationsLanguage</item>
+        <item>@string/settingsOption_russianQuotationsLanguage</item>
+    </array>
+    <array name="array_quotationsLanguages_int">
+        <item>@string/settingsOption_englishQuotationsLanguage</item>
+        <item>@string/settingsOption_russianQuotationsLanguage</item>
+    </array>
+    <array name="array_HttpMethods">
+        <item>@string/settingsOption_getHttpMethod</item>
+        <item>@string/settingsOption_postHttpMethod</item>
+    </array>
+    <array name="array_HttpMethods_int">
+        <item>@string/settingsOption_getHttpMethod</item>
+        <item>@string/settingsOption_postHttpMethod</item>
     </array>
 </resources>
