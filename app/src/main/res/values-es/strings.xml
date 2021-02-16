@@ -11,8 +11,8 @@
     <string name="topBar_myQuotations">Mis citas</string>
     <string name="topBar_favouriteQuotations">Citas favoritas</string>
     <string name="topBar_about">A cerca de</string>
-    <string name="textView_sampleQuotation">Esta es una cita de ejempo</string>
-    <string name="textView_sampleActor">Este es un autor de ejemplo</string>
+    <string name="textView_sampleQuotation">Cita de ejempo %1$d</string>
+    <string name="textView_sampleAuthor">Autor de ejemplo %1$d</string>
     <string name="settingSummary_quotationsLanguage">Las citas serán recibidas en el lenguaje seleccionado</string>
     <string name="textView_noUserName">Sin nombre</string>
     <string name="settingSummary_nameIdentification">Nombre que identifica al usuario</string>
