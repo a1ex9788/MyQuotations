@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,16 +17,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import a1ex9788.dadm.myquotations.adapters.FavouriteQuotationsAdapter;
-import a1ex9788.dadm.myquotations.model.Quotation;
+import a1ex9788.dadm.myquotations.databases.MySqLiteOpenHelper;
 
 public class FavouriteQuotationsActivity extends AppCompatActivity {
 
     private FavouriteQuotationsAdapter favouriteQuotationsAdapter;
+
+    private MySqLiteOpenHelper database = MySqLiteOpenHelper.getInstance(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView_favouriteQuotations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(getMockQuotations());
+        favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(database.getQuotations());
         favouriteQuotationsAdapter.onItemClickListener = position -> {
             showAuthorInfo(favouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
         };
@@ -89,7 +90,12 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(R.string.dialog_deleteQuotation);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
+            database.removeQuotation(favouriteQuotationsAdapter.getQuotation(position).getQuoteText());
             favouriteQuotationsAdapter.removeQuotation(position);
+
+            if (favouriteQuotationsAdapter.getItemCount() == 0) {
+                findViewById(R.id.menu_deleteAllFavouriteQuotations).setVisibility(View.INVISIBLE);
+            }
         });
         alert.setNegativeButton(R.string.dialog_no, null);
 
@@ -101,26 +107,12 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         alert.setMessage(R.string.dialog_deleteAllQuotations);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
             favouriteQuotationsAdapter.removeAllQuotations();
+            database.removeAllQuotations();
             item.setVisible(false);
         });
         alert.setNegativeButton(R.string.dialog_no, null);
 
         alert.create().show();
-    }
-
-    private ArrayList<Quotation> getMockQuotations() {
-        return new ArrayList<>(Arrays.asList(
-                new Quotation("Quotation 1", "Berta Escobar"),
-                new Quotation("Quotation 2", ""),
-                new Quotation("Quotation 3", "Ignatius Farray"),
-                new Quotation("Quotation 4", "Berto Romero"),
-                new Quotation("Quotation 5", "Enrique Pastor"),
-                new Quotation("Quotation 6", "Santiago Segura"),
-                new Quotation("Quotation 7", "Juan del Val"),
-                new Quotation("Quotation 8", "Nuria Roca"),
-                new Quotation("Quotation 9", "Pablo Motos"),
-                new Quotation("Quotation 10", "David Broncano")
-        ));
     }
 
 }

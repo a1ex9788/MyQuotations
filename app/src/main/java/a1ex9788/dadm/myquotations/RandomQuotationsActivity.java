@@ -2,7 +2,6 @@ package a1ex9788.dadm.myquotations;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -10,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import a1ex9788.dadm.myquotations.databases.MySqLiteOpenHelper;
 
 public class RandomQuotationsActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     private int receivedQuotations = 0;
     private MenuItem addMenuItem;
     private boolean addMenuItemIsVisible = false;
+
+    private MySqLiteOpenHelper database = MySqLiteOpenHelper.getInstance(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +55,16 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add:
+                database.addQuotation(textView_quotation.getText().toString(), textView_author.getText().toString());
                 addMenuItem.setVisible(false);
                 return true;
             case R.id.menu_refresh:
-                getNewRandomQuotation();
-                addMenuItem.setVisible(true);
+                String quotationText = getNewRandomQuotation();
+                if (database.existsQuotation(quotationText)) {
+                    addMenuItem.setVisible(false);
+                } else {
+                    addMenuItem.setVisible(true);
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -81,11 +89,14 @@ public class RandomQuotationsActivity extends AppCompatActivity {
         textView_quotation.setText(String.format(getString(R.string.textView_refreshQuotation), userName));
     }
 
-    private void getNewRandomQuotation() {
+    private String getNewRandomQuotation() {
         receivedQuotations++;
 
-        textView_quotation.setText(String.format(getString(R.string.textView_sampleQuotation), receivedQuotations));
+        String quotationText = String.format(getString(R.string.textView_sampleQuotation), receivedQuotations);
+        textView_quotation.setText(quotationText);
         textView_author.setText(String.format(getString(R.string.textView_sampleAuthor), receivedQuotations));
+
+        return quotationText;
     }
 
 }
