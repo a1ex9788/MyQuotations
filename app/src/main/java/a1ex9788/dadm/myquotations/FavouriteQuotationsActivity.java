@@ -20,7 +20,7 @@ import java.net.URLEncoder;
 import java.util.List;
 
 import a1ex9788.dadm.myquotations.adapters.FavouriteQuotationsAdapter;
-import a1ex9788.dadm.myquotations.databases.MySqLiteOpenHelper;
+import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
 
 public class FavouriteQuotationsActivity extends AppCompatActivity {
 

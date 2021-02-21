@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import a1ex9788.dadm.myquotations.databases.MySqLiteOpenHelper;
+import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
 
 public class RandomQuotationsActivity extends AppCompatActivity {
 

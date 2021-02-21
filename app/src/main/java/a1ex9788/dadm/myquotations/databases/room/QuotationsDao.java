@@ -1,4 +1,4 @@
-package a1ex9788.dadm.myquotations.databases;
+package a1ex9788.dadm.myquotations.databases.room;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,21 +7,22 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
 @Dao
-public interface QuotationsDao {
+public abstract class QuotationsDao {
 
     @Insert
-    void addQuotation(Quotation quotation);
+    abstract void addQuotation(Quotation quotation);
 
     @Delete
-    void deleteQuotation(Quotation quotation);
+    abstract void deleteQuotation(Quotation quotation);
 
     @Query("SELECT * FROM " + MySqLiteOpenHelper.QUOTATIONS_TABLE_NAME)
-    List<Quotation> getQuotations();
+    abstract List<Quotation> getQuotations();
 
     @Query("DELETE FROM " + MySqLiteOpenHelper.QUOTATIONS_TABLE_NAME)
-    void deleteAllQuotations();
+    abstract void deleteAllQuotations();
 
 }

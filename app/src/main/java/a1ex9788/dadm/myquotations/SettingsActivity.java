@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
-import a1ex9788.dadm.myquotations.databases.MyRoomDatabase;
+import a1ex9788.dadm.myquotations.databases.room.MyRoomDatabase;
 
 public class SettingsActivity extends AppCompatActivity {
 

@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import a1ex9788.dadm.myquotations.databases.MySqLiteOpenHelper;
+import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
 
 @Entity(tableName = MySqLiteOpenHelper.QUOTATIONS_TABLE_NAME)
 public class Quotation {

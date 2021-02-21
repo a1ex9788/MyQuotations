@@ -1,4 +1,4 @@
-package a1ex9788.dadm.myquotations.databases;
+package a1ex9788.dadm.myquotations.databases.room;
 
 import android.content.Context;
 
@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
 @Database(entities = {Quotation.class}, version = MySqLiteOpenHelper.DATABASE_VERSION)

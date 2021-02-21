@@ -1,4 +1,4 @@
-package a1ex9788.dadm.myquotations.databases;
+package a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper;
 
 import android.provider.BaseColumns;
 
