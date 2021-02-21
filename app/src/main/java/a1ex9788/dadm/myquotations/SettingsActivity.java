@@ -3,7 +3,10 @@ package a1ex9788.dadm.myquotations;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+
+import a1ex9788.dadm.myquotations.databases.MyRoomDatabase;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -23,6 +26,15 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.preferences_settings, rootKey);
+
+            Preference databaseTypePreference = findPreference(getString(R.string.settingsKey_databaseType));
+            databaseTypePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+                if (newValue.toString().equals(getString(R.string.settingsOption_sqLiteDatabaseType))) {
+                    MyRoomDatabase.destroyInstance();
+                }
+
+                return true;
+            });
         }
 
     }

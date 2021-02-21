@@ -9,7 +9,7 @@ public class QuotationContract {
 
     public class QuotationsTable implements BaseColumns {
 
-        public static final String COLUMN_TEXT = "Text", COLUMN_AUTHOR = "Author";
+        public static final String CLASS_NAME = "QuotationsTable", COLUMN_TEXT = "Text", COLUMN_AUTHOR = "Author";
 
     }
 

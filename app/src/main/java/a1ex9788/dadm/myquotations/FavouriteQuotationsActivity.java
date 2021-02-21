@@ -90,7 +90,7 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(R.string.dialog_deleteQuotation);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
-            database.removeQuotation(favouriteQuotationsAdapter.getQuotation(position).getQuoteText());
+            database.deleteQuotation(favouriteQuotationsAdapter.getQuotation(position).getQuoteText());
             favouriteQuotationsAdapter.removeQuotation(position);
 
             if (favouriteQuotationsAdapter.getItemCount() == 0) {
@@ -107,7 +107,7 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         alert.setMessage(R.string.dialog_deleteAllQuotations);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
             favouriteQuotationsAdapter.removeAllQuotations();
-            database.removeAllQuotations();
+            database.deleteAllQuotations();
             item.setVisible(false);
         });
         alert.setNegativeButton(R.string.dialog_no, null);

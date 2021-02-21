@@ -14,15 +14,16 @@ import a1ex9788.dadm.myquotations.model.Quotation;
 
 public class MySqLiteOpenHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "MyQuotationsDB",
-            QUOTATIONS_TABLE_NAME = QuotationContract.QuotationsTable.class.getSimpleName(),
+    public static final String DATABASE_NAME = "MyQuotationsDB",
+            QUOTATIONS_TABLE_NAME = QuotationContract.QuotationsTable.CLASS_NAME,
             QUOTATION_COLUMN_ID = QuotationContract.QuotationsTable._ID,
             QUOTATION_COLUMN_TEXT = QuotationContract.QuotationsTable.COLUMN_TEXT,
             QUOTATION_COLUMN_AUTHOR = QuotationContract.QuotationsTable.COLUMN_AUTHOR;
+    public static final int DATABASE_VERSION = 1;
     private static MySqLiteOpenHelper instance;
 
     private MySqLiteOpenHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     public static MySqLiteOpenHelper getInstance(Context context) {
@@ -89,7 +90,7 @@ public class MySqLiteOpenHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void removeAllQuotations() {
+    public void deleteAllQuotations() {
         SQLiteDatabase db = getWritableDatabase();
 
         db.delete(QUOTATIONS_TABLE_NAME, null, null);
@@ -97,7 +98,7 @@ public class MySqLiteOpenHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void removeQuotation(String quoteText) {
+    public void deleteQuotation(String quoteText) {
         SQLiteDatabase db = getWritableDatabase();
 
         db.delete(QUOTATIONS_TABLE_NAME, QUOTATION_COLUMN_TEXT + "=?", new String[]{quoteText});
