@@ -16,17 +16,17 @@ public class Quotation {
 
     @NonNull
     @ColumnInfo(name = MySqLiteOpenHelper.QUOTATION_COLUMN_TEXT)
-    private String quoteText;
+    private String text;
 
     @ColumnInfo(name = MySqLiteOpenHelper.QUOTATION_COLUMN_AUTHOR)
-    private String quoteAuthor;
+    private String author;
 
     public Quotation() {
     }
 
-    public Quotation(String quoteText, String quoteAuthor) {
-        this.quoteText = quoteText;
-        this.quoteAuthor = quoteAuthor;
+    public Quotation(String text, String author) {
+        this.text = text;
+        this.author = author;
     }
 
     public int getId() {
@@ -37,20 +37,20 @@ public class Quotation {
         this.id = id;
     }
 
-    public String getQuoteText() {
-        return quoteText;
+    public String getText() {
+        return text;
     }
 
-    public void setQuoteText(String quoteText) {
-        this.quoteText = quoteText;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getQuoteAuthor() {
-        return quoteAuthor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setQuoteAuthor(String quoteAuthor) {
-        this.quoteAuthor = quoteAuthor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
 }

@@ -51,8 +51,8 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.quoteText.setText(favouriteQuotations.get(position).getQuoteText());
-        holder.quoteAuthor.setText(favouriteQuotations.get(position).getQuoteAuthor());
+        holder.quoteText.setText(favouriteQuotations.get(position).getText());
+        holder.quoteAuthor.setText(favouriteQuotations.get(position).getAuthor());
     }
 
     @Override

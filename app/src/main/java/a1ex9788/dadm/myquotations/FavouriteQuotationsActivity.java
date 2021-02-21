@@ -38,7 +38,7 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(database.getQuotations());
         favouriteQuotationsAdapter.onItemClickListener = position -> {
-            showAuthorInfo(favouriteQuotationsAdapter.getQuotation(position).getQuoteAuthor());
+            showAuthorInfo(favouriteQuotationsAdapter.getQuotation(position).getAuthor());
         };
         favouriteQuotationsAdapter.onItemLongClickListener = position -> {
             showDeleteQuotationDialog(position);
@@ -90,7 +90,7 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(R.string.dialog_deleteQuotation);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
-            database.deleteQuotation(favouriteQuotationsAdapter.getQuotation(position).getQuoteText());
+            database.deleteQuotation(favouriteQuotationsAdapter.getQuotation(position));
             favouriteQuotationsAdapter.removeQuotation(position);
 
             if (favouriteQuotationsAdapter.getItemCount() == 0) {

@@ -10,9 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
-public class MySqLiteOpenHelper extends SQLiteOpenHelper {
+public class MySqLiteOpenHelper extends SQLiteOpenHelper implements QuotationDatabaseAccess {
 
     public static final String DATABASE_NAME = "MyQuotationsDB",
             QUOTATIONS_TABLE_NAME = QuotationContract.QuotationsTable.CLASS_NAME,
@@ -79,12 +80,12 @@ public class MySqLiteOpenHelper extends SQLiteOpenHelper {
         return existsQuotation;
     }
 
-    public void addQuotation(String text, String author) {
+    public void addQuotation(Quotation quotation) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(QUOTATION_COLUMN_TEXT, text);
-        contentValues.put(QUOTATION_COLUMN_AUTHOR, author);
+        contentValues.put(QUOTATION_COLUMN_TEXT, quotation.getText());
+        contentValues.put(QUOTATION_COLUMN_AUTHOR, quotation.getAuthor());
         db.insert(QUOTATIONS_TABLE_NAME, null, contentValues);
 
         db.close();
@@ -98,10 +99,10 @@ public class MySqLiteOpenHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteQuotation(String quoteText) {
+    public void deleteQuotation(Quotation quotation) {
         SQLiteDatabase db = getWritableDatabase();
 
-        db.delete(QUOTATIONS_TABLE_NAME, QUOTATION_COLUMN_TEXT + "=?", new String[]{quoteText});
+        db.delete(QUOTATIONS_TABLE_NAME, QUOTATION_COLUMN_TEXT + "=?", new String[]{quotation.getText()});
 
         db.close();
     }

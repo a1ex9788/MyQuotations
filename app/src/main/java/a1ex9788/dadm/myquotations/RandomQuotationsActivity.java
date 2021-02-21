@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
+import a1ex9788.dadm.myquotations.model.Quotation;
 
 public class RandomQuotationsActivity extends AppCompatActivity {
 
@@ -55,7 +56,7 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add:
-                database.addQuotation(textView_quotation.getText().toString(), textView_author.getText().toString());
+                database.addQuotation(new Quotation(textView_quotation.getText().toString(), textView_author.getText().toString()));
                 addMenuItem.setVisible(false);
                 return true;
             case R.id.menu_refresh:

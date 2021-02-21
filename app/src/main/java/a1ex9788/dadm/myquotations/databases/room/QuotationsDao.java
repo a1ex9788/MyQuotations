@@ -7,22 +7,30 @@ import androidx.room.Query;
 
 import java.util.List;
 
+import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
 @Dao
-public abstract class QuotationsDao {
+public abstract class QuotationsDao implements QuotationDatabaseAccess {
 
     @Insert
-    abstract void addQuotation(Quotation quotation);
+    public abstract void addQuotation(Quotation quotation);
 
     @Delete
-    abstract void deleteQuotation(Quotation quotation);
+    public abstract void deleteQuotation(Quotation quotation);
+
+    @Query("SELECT * FROM " + MySqLiteOpenHelper.QUOTATIONS_TABLE_NAME + " WHERE " + MySqLiteOpenHelper.QUOTATION_COLUMN_TEXT + " =:quotationText")
+    public abstract Quotation getQuotation(String quotationText);
+
+    public boolean existsQuotation(String quotationText) {
+        return getQuotation(quotationText) != null;
+    }
 
     @Query("SELECT * FROM " + MySqLiteOpenHelper.QUOTATIONS_TABLE_NAME)
-    abstract List<Quotation> getQuotations();
+    public abstract List<Quotation> getQuotations();
 
     @Query("DELETE FROM " + MySqLiteOpenHelper.QUOTATIONS_TABLE_NAME)
-    abstract void deleteAllQuotations();
+    public abstract void deleteAllQuotations();
 
 }
