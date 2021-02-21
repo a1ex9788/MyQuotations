@@ -27,9 +27,9 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.preferences_settings, rootKey);
 
-            Preference databaseTypePreference = findPreference(getString(R.string.settingsKey_databaseType));
+            Preference databaseTypePreference = findPreference(getString(R.string.settingsKey_databaseAccess));
             databaseTypePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-                if (newValue.toString().equals(getString(R.string.settingsOption_sqLiteDatabaseType))) {
+                if (newValue.toString().equals(getString(R.string.settingsOption_sqLiteDatabaseAccess))) {
                     MyRoomDatabase.destroyInstance();
                 }
 

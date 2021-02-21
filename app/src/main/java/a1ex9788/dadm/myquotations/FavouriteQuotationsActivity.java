@@ -20,18 +20,20 @@ import java.net.URLEncoder;
 import java.util.List;
 
 import a1ex9788.dadm.myquotations.adapters.FavouriteQuotationsAdapter;
-import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
+import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 
 public class FavouriteQuotationsActivity extends AppCompatActivity {
 
     private FavouriteQuotationsAdapter favouriteQuotationsAdapter;
 
-    private MySqLiteOpenHelper database = MySqLiteOpenHelper.getInstance(this);
+    private QuotationDatabaseAccess database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite_quotations);
+
+        database = QuotationDatabaseAccess.getDatabase(this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView_favouriteQuotations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

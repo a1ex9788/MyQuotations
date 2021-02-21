@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
+import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
 public class RandomQuotationsActivity extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     private MenuItem addMenuItem;
     private boolean addMenuItemIsVisible = false;
 
-    private MySqLiteOpenHelper database = MySqLiteOpenHelper.getInstance(this);
+    private QuotationDatabaseAccess database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,8 @@ public class RandomQuotationsActivity extends AppCompatActivity {
             receivedQuotations = savedInstanceState.getInt(CURRENT_QUOTATION_NUMBER_KEY);
             addMenuItemIsVisible = savedInstanceState.getBoolean(ADD_MENU_ITEM_IS_VISIBLE_KEY);
         }
+
+        database = QuotationDatabaseAccess.getDatabase(this);
     }
 
     @Override

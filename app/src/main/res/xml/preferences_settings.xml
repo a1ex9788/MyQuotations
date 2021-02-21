@@ -28,11 +28,11 @@
     <PreferenceCategory android:title="@string/settingsCategoryTitle_database">
 
         <ListPreference
-            android:defaultValue="@string/settingsOption_roomDatabaseType"
-            android:entries="@array/array_databaseType"
-            android:entryValues="@array/array_databaseType_int"
-            android:key="@string/settingsKey_databaseType"
-            android:summary="@string/settingsSummary_databaseType"
-            android:title="@string/settingsTitle_databaseType" />
+            android:defaultValue="@string/settingsOption_roomDatabaseAccess"
+            android:entries="@array/array_databaseAccess"
+            android:entryValues="@array/array_databaseAccess_int"
+            android:key="@string/settingsKey_databaseAccess"
+            android:summary="@string/settingsSummary_databaseAccess"
+            android:title="@string/settingsTitle_databaseAccess" />
     </PreferenceCategory>
 </PreferenceScreen>

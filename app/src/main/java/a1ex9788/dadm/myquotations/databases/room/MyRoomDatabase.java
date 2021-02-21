@@ -21,7 +21,7 @@ public abstract class MyRoomDatabase extends RoomDatabase {
         }
     }
 
-    public MyRoomDatabase getInstance(Context context) {
+    public static MyRoomDatabase getInstance(Context context) {
         if (myRoomDatabase == null) {
             myRoomDatabase = Room
                     .databaseBuilder(context, MyRoomDatabase.class, QuotationDatabaseAccess.DATABASE_NAME)
