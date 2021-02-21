@@ -6,7 +6,7 @@
         android:key="@string/settingsKey_userName"
         android:selectAllOnFocus="true"
         android:singleLine="true"
-        android:summary="@string/settingSummary_nameIdentification"
+        android:summary="@string/settingsSummary_nameIdentification"
         android:title="@string/settingsTitle_userName" />
     <PreferenceCategory android:title="@string/settingsCategoryTitle_webService">
 
@@ -15,14 +15,24 @@
             android:entries="@array/array_quotationsLanguages"
             android:entryValues="@array/array_quotationsLanguages_int"
             android:key="@string/settingsKey_quotationsLanguage"
-            android:summary="@string/settingSummary_quotationsLanguage"
+            android:summary="@string/settingsSummary_quotationsLanguage"
             android:title="@string/settingsTitle_quotationsLanguage" />
         <ListPreference
             android:defaultValue="@string/settingsOption_getHttpMethod"
-            android:entries="@array/array_HttpMethods"
-            android:entryValues="@array/array_HttpMethods_int"
+            android:entries="@array/array_httpMethods"
+            android:entryValues="@array/array_httpMethods_int"
             android:key="@string/settingsKey_httpMethod"
-            android:summary="@string/settingSummary_httpMethod"
+            android:summary="@string/settingsSummary_httpMethod"
             android:title="@string/settingsTitle_httpMethod" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settingsCategoryTitle_database">
+
+        <ListPreference
+            android:defaultValue="@string/settingsOption_roomDatabaseType"
+            android:entries="@array/array_databaseType"
+            android:entryValues="@array/array_databaseType_int"
+            android:key="@string/settingsKey_databaseType"
+            android:summary="@string/settingsSummary_databaseType"
+            android:title="@string/settingsTitle_databaseType" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -13,10 +13,10 @@
     <string name="topBar_about">A cerca de</string>
     <string name="textView_sampleQuotation">Cita de ejemplo %1$d</string>
     <string name="textView_sampleAuthor">Autor de ejemplo %1$d</string>
-    <string name="settingSummary_quotationsLanguage">Las citas serán recibidas en el lenguaje seleccionado</string>
+    <string name="settingsSummary_quotationsLanguage">Las citas serán recibidas en el lenguaje seleccionado</string>
     <string name="textView_noUserName">Sin nombre</string>
-    <string name="settingSummary_nameIdentification">Nombre que identifica al usuario</string>
-    <string name="settingSummary_httpMethod">Las peticiones web serán ejecutadas utilizando el método HTTP seleccionado</string>
+    <string name="settingsSummary_nameIdentification">Nombre que identifica al usuario</string>
+    <string name="settingsSummary_httpMethod">Las peticiones web serán ejecutadas utilizando el método HTTP seleccionado</string>
     <string name="textView_refreshQuotation">Hola %1s! Aprieta Refrescar para obtener una nueva cita</string>
     <string name="textView_about">\"My Quotations\" hecho por\nAlejandro Carrión\nalcarsa5\n© DADM 2021</string>
     <string name="settingsOption_englishQuotationsLanguage">Inglés</string>
@@ -34,4 +34,7 @@
     <string name="settingsTitle_quotationsLanguage">Idioma de las citas</string>
     <string name="settingsTitle_httpMethod">Método HTTP</string>
     <string name="settingsCategoryTitle_webService">Servicio web</string>
+    <string name="settingsSummary_databaseType">Base de datos que se utilizará para guardar las citas</string>
+    <string name="settingsTitle_databaseType">Tipo de base de datos</string>
+    <string name="settingsCategoryTitle_database">Base de datos</string>
 </resources>
