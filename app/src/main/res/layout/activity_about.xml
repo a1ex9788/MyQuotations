@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="@string/textView_about"
             android:textAlignment="center"
-            android:textSize="@dimen/bigMessages"
+            android:textSize="@dimen/extraBig"
             app:layout_constraintBottom_toTopOf="@+id/imageView1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

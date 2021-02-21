@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dashboardButtons">22sp</dimen>
-    <dimen name="labels">22sp</dimen>
-    <dimen name="bigMessages">36sp</dimen>
+    <dimen name="extraBig">38sp</dimen>
+    <dimen name="big">28sp</dimen>
+    <dimen name="medium">20sp</dimen>
+    <dimen name="small">16sp</dimen>
+    <dimen name="extraSmall">10sp</dimen>
+    <dimen name="dashboardButtons">@dimen/big</dimen>
 </resources>
