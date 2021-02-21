@@ -15,12 +15,6 @@ import a1ex9788.dadm.myquotations.model.Quotation;
 
 public class MySqLiteOpenHelper extends SQLiteOpenHelper implements QuotationDatabaseAccess {
 
-    public static final String DATABASE_NAME = "MyQuotationsDB",
-            QUOTATIONS_TABLE_NAME = QuotationContract.QuotationsTable.CLASS_NAME,
-            QUOTATION_COLUMN_ID = QuotationContract.QuotationsTable._ID,
-            QUOTATION_COLUMN_TEXT = QuotationContract.QuotationsTable.COLUMN_TEXT,
-            QUOTATION_COLUMN_AUTHOR = QuotationContract.QuotationsTable.COLUMN_AUTHOR;
-    public static final int DATABASE_VERSION = 1;
     private static MySqLiteOpenHelper instance;
 
     private MySqLiteOpenHelper(Context context) {
