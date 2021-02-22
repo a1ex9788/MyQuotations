@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import a1ex9788.dadm.myquotations.databases.QuotationDatabase;
 import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
@@ -23,7 +24,7 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     private MenuItem addMenuItem;
     private boolean addMenuItemIsVisible = false;
 
-    private QuotationDatabaseAccess database;
+    private QuotationDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

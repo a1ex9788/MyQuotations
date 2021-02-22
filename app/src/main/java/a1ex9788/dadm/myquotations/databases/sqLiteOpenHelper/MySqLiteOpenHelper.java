@@ -10,10 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
+import a1ex9788.dadm.myquotations.databases.QuotationDatabase;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
-public class MySqLiteOpenHelper extends SQLiteOpenHelper implements QuotationDatabaseAccess {
+public class MySqLiteOpenHelper extends SQLiteOpenHelper implements QuotationDatabase {
 
     private static MySqLiteOpenHelper instance;
 

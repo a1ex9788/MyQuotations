@@ -7,11 +7,11 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
+import a1ex9788.dadm.myquotations.databases.QuotationDatabase;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
 @Dao
-public abstract class QuotationsDao implements QuotationDatabaseAccess {
+public abstract class QuotationsDao implements QuotationDatabase {
 
     @Insert
     public abstract void addQuotation(Quotation quotation);

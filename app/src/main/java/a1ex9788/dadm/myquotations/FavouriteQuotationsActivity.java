@@ -20,13 +20,14 @@ import java.net.URLEncoder;
 import java.util.List;
 
 import a1ex9788.dadm.myquotations.adapters.FavouriteQuotationsAdapter;
+import a1ex9788.dadm.myquotations.databases.QuotationDatabase;
 import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 
 public class FavouriteQuotationsActivity extends AppCompatActivity {
 
     private FavouriteQuotationsAdapter favouriteQuotationsAdapter;
 
-    private QuotationDatabaseAccess database;
+    private QuotationDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +82,6 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(getString(R.string.url_wikipedia) + authorName));
 
-        // Check that there exists an Activity able to manage that Intent
         List<ResolveInfo> activities = getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         if (activities.size() > 0) {
             startActivity(intent);
