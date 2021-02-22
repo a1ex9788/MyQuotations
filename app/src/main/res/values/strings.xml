@@ -38,9 +38,15 @@
     <string name="settingsSummary_nameIdentification">Name that identifies the user</string>
     <string name="settingsSummary_databaseAccess">Method that will be used to connect to the database</string>
     <string name="settingsOption_getHttpMethod" translatable="false">GET</string>
+    <string name="settingsOption_getHttpMethod_internal" translatable="false">@string/settingsOption_getHttpMethod</string>
     <string name="settingsOption_postHttpMethod" translatable="false">POST</string>
+    <string name="settingsOption_postHttpMethod_internal" translatable="false">@string/settingsOption_postHttpMethod</string>
     <string name="settingsOption_englishQuotationsLanguage">English</string>
+    <string name="settingsOption_englishQuotationsLanguage_internal" translatable="false">en</string>
     <string name="settingsOption_russianQuotationsLanguage">Russian</string>
+    <string name="settingsOption_russianQuotationsLanguage_internal" translatable="false">ru</string>
     <string name="settingsOption_roomDatabaseAccess" translatable="false">Room</string>
+    <string name="settingsOption_roomDatabaseAccess_internal" translatable="false">@string/settingsOption_roomDatabaseAccess</string>
     <string name="settingsOption_sqLiteDatabaseAccess" translatable="false">SQLiteOpenHelper</string>
+    <string name="settingsOption_sqLiteDatabaseAccess_internal" translatable="false">@string/settingsOption_sqLiteDatabaseAccess</string>
 </resources>

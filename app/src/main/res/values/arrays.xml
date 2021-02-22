@@ -5,24 +5,24 @@
         <item>@string/settingsOption_englishQuotationsLanguage</item>
         <item>@string/settingsOption_russianQuotationsLanguage</item>
     </array>
-    <array name="array_quotationsLanguages_int">
-        <item>@string/settingsOption_englishQuotationsLanguage</item>
-        <item>@string/settingsOption_russianQuotationsLanguage</item>
+    <array name="array_quotationsLanguages_internal">
+        <item>@string/settingsOption_englishQuotationsLanguage_internal</item>
+        <item>@string/settingsOption_russianQuotationsLanguage_internal</item>
     </array>
     <array name="array_httpMethods">
         <item>@string/settingsOption_getHttpMethod</item>
         <item>@string/settingsOption_postHttpMethod</item>
     </array>
-    <array name="array_httpMethods_int">
-        <item>@string/settingsOption_getHttpMethod</item>
-        <item>@string/settingsOption_postHttpMethod</item>
+    <array name="array_httpMethods_internal">
+        <item>@string/settingsOption_getHttpMethod_internal</item>
+        <item>@string/settingsOption_postHttpMethod_internal</item>
     </array>
     <array name="array_databaseAccess">
         <item>@string/settingsOption_roomDatabaseAccess</item>
         <item>@string/settingsOption_sqLiteDatabaseAccess</item>
     </array>
-    <array name="array_databaseAccess_int">
-        <item>@string/settingsOption_roomDatabaseAccess</item>
-        <item>@string/settingsOption_sqLiteDatabaseAccess</item>
+    <array name="array_databaseAccess_internal">
+        <item>@string/settingsOption_roomDatabaseAccess_internal</item>
+        <item>@string/settingsOption_sqLiteDatabaseAccess_internal</item>
     </array>
 </resources>

@@ -5,6 +5,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.google.gson.annotations.SerializedName;
+
 import a1ex9788.dadm.myquotations.databases.sqLiteOpenHelper.MySqLiteOpenHelper;
 
 @Entity(tableName = MySqLiteOpenHelper.QUOTATIONS_TABLE_NAME)
@@ -16,9 +18,11 @@ public class Quotation {
 
     @NonNull
     @ColumnInfo(name = MySqLiteOpenHelper.QUOTATION_COLUMN_TEXT)
+    @SerializedName("quoteText")
     private String text;
 
     @ColumnInfo(name = MySqLiteOpenHelper.QUOTATION_COLUMN_AUTHOR)
+    @SerializedName("quoteAuthor")
     private String author;
 
     public Quotation() {
