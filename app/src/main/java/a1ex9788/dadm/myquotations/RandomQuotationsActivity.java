@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,7 +23,7 @@ public class RandomQuotationsActivity extends AppCompatActivity {
             CURRENT_QUOTATION_NUMBER_KEY = "currentQuotationNumber", ADD_MENU_ITEM_IS_VISIBLE_KEY = "addMenuItemIsVisible";
 
     private TextView textView_quotation, textView_author;
-    private MenuItem addMenuItem;
+    private MenuItem refreshMenuItem, addMenuItem;
     private boolean addMenuItemIsVisible = false;
 
     private QuotationDatabase database;
@@ -49,6 +51,7 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.random_quotations, menu);
+        refreshMenuItem = menu.findItem(R.id.menu_refresh);
         addMenuItem = menu.findItem(R.id.menu_add);
         addMenuItem.setVisible(addMenuItemIsVisible);
         return true;
@@ -100,10 +103,23 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     public void showNewQuotation(Quotation newQuotation) {
         textView_quotation.setText(newQuotation.getText());
         textView_author.setText(newQuotation.getAuthor());
+
+        refreshMenuItem.setVisible(true);
+
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     public void showAddFavouriteQuotationMenuItem() {
         addMenuItem.setVisible(true);
+    }
+
+    public void hideActionBarAndShowProgressBar() {
+        refreshMenuItem.setVisible(false);
+        addMenuItem.setVisible(false);
+
+        ProgressBar progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
 }
