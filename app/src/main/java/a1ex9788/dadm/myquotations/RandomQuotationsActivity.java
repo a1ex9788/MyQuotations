@@ -13,6 +13,7 @@ import androidx.preference.PreferenceManager;
 import a1ex9788.dadm.myquotations.databases.QuotationDatabase;
 import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 import a1ex9788.dadm.myquotations.model.Quotation;
+import a1ex9788.dadm.myquotations.threads.ShowNewRandomQuotationThread;
 
 public class RandomQuotationsActivity extends AppCompatActivity {
 
@@ -20,7 +21,6 @@ public class RandomQuotationsActivity extends AppCompatActivity {
             CURRENT_QUOTATION_NUMBER_KEY = "currentQuotationNumber", ADD_MENU_ITEM_IS_VISIBLE_KEY = "addMenuItemIsVisible";
 
     private TextView textView_quotation, textView_author;
-    private int receivedQuotations = 0;
     private MenuItem addMenuItem;
     private boolean addMenuItemIsVisible = false;
 
@@ -40,7 +40,6 @@ public class RandomQuotationsActivity extends AppCompatActivity {
             String a = savedInstanceState.getString(CURRENT_QUOTATION_KEY);
             textView_quotation.setText(savedInstanceState.getString(CURRENT_QUOTATION_KEY));
             textView_author.setText(savedInstanceState.getString(CURRENT_AUTHOR_KEY));
-            receivedQuotations = savedInstanceState.getInt(CURRENT_QUOTATION_NUMBER_KEY);
             addMenuItemIsVisible = savedInstanceState.getBoolean(ADD_MENU_ITEM_IS_VISIBLE_KEY);
         }
 
@@ -59,16 +58,10 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add:
-                database.addQuotation(new Quotation(textView_quotation.getText().toString(), textView_author.getText().toString()));
-                addMenuItem.setVisible(false);
+                addFavouriteQuotation();
                 return true;
             case R.id.menu_refresh:
-                String quotationText = getNewRandomQuotation();
-                if (database.existsQuotation(quotationText)) {
-                    addMenuItem.setVisible(false);
-                } else {
-                    addMenuItem.setVisible(true);
-                }
+                showNewRandomQuotation();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -81,7 +74,6 @@ public class RandomQuotationsActivity extends AppCompatActivity {
 
         bundle.putString(CURRENT_QUOTATION_KEY, textView_quotation.getText().toString());
         bundle.putString(CURRENT_AUTHOR_KEY, textView_author.getText().toString());
-        bundle.putInt(CURRENT_QUOTATION_NUMBER_KEY, receivedQuotations);
         bundle.putBoolean(ADD_MENU_ITEM_IS_VISIBLE_KEY, addMenuItem.isVisible());
     }
 
@@ -93,14 +85,25 @@ public class RandomQuotationsActivity extends AppCompatActivity {
         textView_quotation.setText(String.format(getString(R.string.textView_refreshQuotation), userName));
     }
 
-    private String getNewRandomQuotation() {
-        receivedQuotations++;
+    private void addFavouriteQuotation() {
+        addMenuItem.setVisible(false);
 
-        String quotationText = String.format(getString(R.string.textView_sampleQuotation), receivedQuotations);
-        textView_quotation.setText(quotationText);
-        textView_author.setText(String.format(getString(R.string.textView_sampleAuthor), receivedQuotations));
+        new Thread(() -> {
+            database.addQuotation(new Quotation(textView_quotation.getText().toString(), textView_author.getText().toString()));
+        }).start();
+    }
 
-        return quotationText;
+    private void showNewRandomQuotation() {
+        new ShowNewRandomQuotationThread(this).start();
+    }
+
+    public void showNewQuotation(Quotation newQuotation) {
+        textView_quotation.setText(newQuotation.getText());
+        textView_author.setText(newQuotation.getAuthor());
+    }
+
+    public void showAddFavouriteQuotationMenuItem() {
+        addMenuItem.setVisible(true);
     }
 
 }

@@ -60,6 +60,12 @@ public class FavouriteQuotationsAdapter extends RecyclerView.Adapter<FavouriteQu
         return favouriteQuotations.size();
     }
 
+    public void setQuotations(List<Quotation> quotations) {
+        favouriteQuotations = quotations;
+
+        notifyDataSetChanged();
+    }
+
     public interface IOnItemClickListener {
 
         void onItemClickListener(int position);

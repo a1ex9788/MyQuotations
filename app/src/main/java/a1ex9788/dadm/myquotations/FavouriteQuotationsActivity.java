@@ -17,11 +17,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import a1ex9788.dadm.myquotations.adapters.FavouriteQuotationsAdapter;
 import a1ex9788.dadm.myquotations.databases.QuotationDatabase;
 import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
+import a1ex9788.dadm.myquotations.model.Quotation;
+import a1ex9788.dadm.myquotations.threads.ShowFavouriteQuotationsThread;
 
 public class FavouriteQuotationsActivity extends AppCompatActivity {
 
@@ -39,7 +42,8 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView_favouriteQuotations);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(database.getQuotations());
+
+        favouriteQuotationsAdapter = new FavouriteQuotationsAdapter(new ArrayList());
         favouriteQuotationsAdapter.onItemClickListener = position -> {
             showAuthorInfo(favouriteQuotationsAdapter.getQuotation(position).getAuthor());
         };
@@ -47,6 +51,8 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
             showDeleteQuotationDialog(position);
         };
         recyclerView.setAdapter(favouriteQuotationsAdapter);
+
+        new ShowFavouriteQuotationsThread(this).start();
     }
 
     @Override
@@ -68,6 +74,10 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void showQuotations(List<Quotation> quotations) {
+        favouriteQuotationsAdapter.setQuotations(quotations);
     }
 
     private void showAuthorInfo(String authorName) {
@@ -92,12 +102,16 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(R.string.dialog_deleteQuotation);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
-            database.deleteQuotation(favouriteQuotationsAdapter.getQuotation(position));
+            Quotation quotationToDelete = favouriteQuotationsAdapter.getQuotation(position);
             favouriteQuotationsAdapter.removeQuotation(position);
 
             if (favouriteQuotationsAdapter.getItemCount() == 0) {
                 findViewById(R.id.menu_deleteAllFavouriteQuotations).setVisibility(View.INVISIBLE);
             }
+
+            new Thread(() -> {
+                database.deleteQuotation(quotationToDelete);
+            }).start();
         });
         alert.setNegativeButton(R.string.dialog_no, null);
 
@@ -108,9 +122,12 @@ public class FavouriteQuotationsActivity extends AppCompatActivity {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setMessage(R.string.dialog_deleteAllQuotations);
         alert.setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
-            favouriteQuotationsAdapter.removeAllQuotations();
-            database.deleteAllQuotations();
             item.setVisible(false);
+            favouriteQuotationsAdapter.removeAllQuotations();
+
+            new Thread(() -> {
+                database.deleteAllQuotations();
+            }).start();
         });
         alert.setNegativeButton(R.string.dialog_no, null);
 

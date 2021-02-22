@@ -25,7 +25,6 @@ public abstract class MyRoomDatabase extends RoomDatabase {
         if (myRoomDatabase == null) {
             myRoomDatabase = Room
                     .databaseBuilder(context, MyRoomDatabase.class, QuotationDatabase.DATABASE_NAME)
-                    .allowMainThreadQueries()
                     .build();
         }
 
