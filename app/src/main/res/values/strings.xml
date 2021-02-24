@@ -12,7 +12,7 @@
     <string name="textView_about">\"My Quotations\" by\nAlejandro Carrión\nalcarsa5\n© DADM 2021</string>
     <string name="imageView_developer">An image of the developer</string>
     <string name="editText_insertName">Insert your name</string>
-    <string name="textView_refreshQuotation">Hello %1s! Press Refresh to get a new quotation</string>
+    <string name="textView_refreshQuotation">Hello %1s! Press \"Refresh\" to get a new quotation</string>
     <string name="textView_noUserName">Nameless one</string>
     <string name="toast_noAuthor">It is not possible to obtain the author information</string>
     <string name="url_wikipedia">https://en.wikipedia.org/wiki/Special:Search?search=</string>

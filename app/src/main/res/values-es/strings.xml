@@ -15,7 +15,7 @@
     <string name="textView_noUserName">Sin nombre</string>
     <string name="settingsSummary_nameIdentification">Nombre que identifica al usuario</string>
     <string name="settingsSummary_httpMethod">Las peticiones web serán ejecutadas utilizando el método HTTP seleccionado</string>
-    <string name="textView_refreshQuotation">Hola %1s! Aprieta Refrescar para obtener una nueva cita</string>
+    <string name="textView_refreshQuotation">Hola %1s! Aprieta “Refrescar“ para obtener una nueva cita</string>
     <string name="textView_about">\"My Quotations\" hecho por\nAlejandro Carrión\nalcarsa5\n© DADM 2021</string>
     <string name="settingsOption_englishQuotationsLanguage">Inglés</string>
     <string name="settingsOption_russianQuotationsLanguage">Ruso</string>
