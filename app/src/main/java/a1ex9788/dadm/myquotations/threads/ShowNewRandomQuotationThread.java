@@ -40,36 +40,42 @@ public class ShowNewRandomQuotationThread extends Thread {
 
     @Override
     public void run() {
-        if (reference == null) {
-            return;
-        }
+        try {
+            if (reference == null) {
+                return;
+            }
 
-        RandomQuotationsActivity activity = reference.get();
+            RandomQuotationsActivity activity = reference.get();
 
-        if (!hasInternetConnection()) {
-            showErrorMessage(activity);
-            return;
-        }
+            if (!hasInternetConnection()) {
+                showErrorMessage(activity);
+                return;
+            }
 
-        activity.runOnUiThread(() -> {
-            activity.hideActionBarAndShowProgressBar();
-        });
-
-        Quotation newQuotation = getNewRandomQuotationFromWebService();
-
-        if (newQuotation == null) {
-            showErrorMessage(activity);
-            return;
-        }
-
-        activity.runOnUiThread(() -> {
-            activity.showNewQuotation(newQuotation);
-        });
-
-        if (!existsQuotation(activity, newQuotation)) {
             activity.runOnUiThread(() -> {
-                activity.showAddFavouriteQuotationMenuItem();
+                activity.hideActionBarAndShowProgressBar();
             });
+
+            Quotation newQuotation = getNewRandomQuotationFromWebService();
+
+            if (newQuotation == null) {
+                showErrorMessage(activity);
+                return;
+            }
+
+            activity.runOnUiThread(() -> {
+                activity.showNewQuotation(newQuotation);
+            });
+
+            if (!existsQuotation(activity, newQuotation)) {
+                activity.runOnUiThread(() -> {
+                    activity.showAddFavouriteQuotationMenuItem();
+                });
+            }
+        } catch (Exception e) {
+            if (reference != null) {
+                showErrorMessage(reference.get());
+            }
         }
     }
 
