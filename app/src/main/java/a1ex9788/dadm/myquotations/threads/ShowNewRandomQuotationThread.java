@@ -47,14 +47,14 @@ public class ShowNewRandomQuotationThread extends Thread {
 
             RandomQuotationsActivity activity = reference.get();
 
+            activity.runOnUiThread(() -> {
+                activity.hideActionBarAndShowProgressBar();
+            });
+
             if (!hasInternetConnection()) {
                 showErrorMessage(activity);
                 return;
             }
-
-            activity.runOnUiThread(() -> {
-                activity.hideActionBarAndShowProgressBar();
-            });
 
             Quotation newQuotation = getNewRandomQuotationFromWebService();
 
