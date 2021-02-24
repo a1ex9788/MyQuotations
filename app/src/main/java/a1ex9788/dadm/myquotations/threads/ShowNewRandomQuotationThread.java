@@ -74,8 +74,7 @@ public class ShowNewRandomQuotationThread extends Thread {
         builder.scheme("https");
         builder.authority("api.forismatic.com");
         builder.appendPath("api");
-        builder.appendPath("1.0");
-        builder.appendPath("/");
+        builder.appendEncodedPath("1.0/");
 
         if (useGetHttpMethod) {
             builder.appendQueryParameter("method", "getQuote");
