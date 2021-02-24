@@ -23,6 +23,8 @@
     <string name="menu_refresh">Refresh</string>
     <string name="menu_deleteAll">Clear all</string>
     <string name="dialog_deleteAllQuotations">Are you sure you want to delete ALL your favourite quotations?</string>
+    <string name="textView_errorQuotationText">There was a problem connecting to the quotations web service</string>
+    <string name="textView_errorQuotationAuthor">The system</string>
     <string name="settingsCategoryTitle_webService">Web service</string>
     <string name="settingsCategoryTitle_database">Database</string>
     <string name="settingsKey_userName" translatable="false">userName</string>

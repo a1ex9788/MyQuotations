@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -42,23 +43,32 @@ public class ShowNewRandomQuotationThread extends Thread {
             activity.hideActionBarAndShowProgressBar();
         });
 
-        Quotation newQuotation = getNewRandomQuotation();
+        Quotation newQuotation = getNewRandomQuotationFromWebService();
+        boolean errorQuotation = newQuotation == null;
 
+        if (errorQuotation) {
+            newQuotation = new Quotation(activity.getString(R.string.textView_errorQuotationText), activity.getString(R.string.textView_errorQuotationAuthor));
+        }
+
+        Quotation finalNewQuotation = newQuotation;
         activity.runOnUiThread(() -> {
-            activity.showNewQuotation(newQuotation);
+            activity.showNewQuotation(finalNewQuotation);
         });
 
-        if (!existsQuotation(activity, newQuotation)) {
+        if (!errorQuotation && !existsQuotation(activity, newQuotation)) {
             activity.runOnUiThread(() -> {
                 activity.showAddFavouriteQuotationMenuItem();
             });
         }
     }
 
-    private Quotation getNewRandomQuotation() {
+    private Quotation getNewRandomQuotationFromWebService() {
+        Quotation newQuotation = null;
         RandomQuotationsActivity activity = reference.get();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        Quotation newQuotation = null;
+        String language = preferences.getString(activity.getString(R.string.settingsKey_quotationsLanguage), activity.getString(R.string.settingsOption_englishQuotationsLanguage_internal));
+        String httpMethod = preferences.getString(activity.getString(R.string.settingsKey_httpMethod), activity.getString(R.string.settingsOption_getHttpMethod_internal));
+        boolean useGetHttpMethod = httpMethod.equals(activity.getString(R.string.settingsOption_getHttpMethod_internal));
 
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("https");
@@ -66,15 +76,29 @@ public class ShowNewRandomQuotationThread extends Thread {
         builder.appendPath("api");
         builder.appendPath("1.0");
         builder.appendPath("/");
-        builder.appendQueryParameter("method", "getQuote");
-        builder.appendQueryParameter("format", "json");
-        builder.appendQueryParameter("lang", preferences.getString(activity.getString(R.string.settingsKey_quotationsLanguage), activity.getString(R.string.settingsOption_englishQuotationsLanguage_internal)));
-        String httpMethod = preferences.getString(activity.getString(R.string.settingsKey_httpMethod), activity.getString(R.string.settingsOption_getHttpMethod_internal));
+
+        if (useGetHttpMethod) {
+            builder.appendQueryParameter("method", "getQuote");
+            builder.appendQueryParameter("format", "json");
+            builder.appendQueryParameter("lang", language);
+        }
+
+        String body = "method=getQuote&format=json&lang=" + language;
 
         try {
             URL url = new URL(builder.build().toString());
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod(httpMethod);
+            connection.setDoInput(true);
+
+            if (!useGetHttpMethod) {
+                connection.setDoOutput(true);
+
+                OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
+                writer.write(body);
+                writer.flush();
+                writer.close();
+            }
 
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 InputStreamReader inputStreamReader = new InputStreamReader(connection.getInputStream());

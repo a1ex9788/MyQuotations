@@ -35,4 +35,6 @@
     <string name="settingsSummary_databaseAccess">Método que se utilizará para conectar con la base de datos</string>
     <string name="settingsTitle_databaseAccess">Acceso base de datos</string>
     <string name="settingsCategoryTitle_database">Base de datos</string>
+    <string name="textView_errorQuotationAuthor">El sistema</string>
+    <string name="textView_errorQuotationText">Hubo un problema al conectar con el servicio web de citas</string>
 </resources>
