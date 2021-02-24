@@ -1,7 +1,12 @@
 package a1ex9788.dadm.myquotations.threads;
 
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 
 import androidx.preference.PreferenceManager;
 
@@ -22,6 +27,8 @@ import a1ex9788.dadm.myquotations.databases.QuotationDatabase;
 import a1ex9788.dadm.myquotations.databases.QuotationDatabaseAccess;
 import a1ex9788.dadm.myquotations.model.Quotation;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
+
 public class ShowNewRandomQuotationThread extends Thread {
 
     private WeakReference<RandomQuotationsActivity> reference;
@@ -39,27 +46,51 @@ public class ShowNewRandomQuotationThread extends Thread {
 
         RandomQuotationsActivity activity = reference.get();
 
+        if (!hasInternetConnection()) {
+            showErrorMessage(activity);
+            return;
+        }
+
         activity.runOnUiThread(() -> {
             activity.hideActionBarAndShowProgressBar();
         });
 
         Quotation newQuotation = getNewRandomQuotationFromWebService();
-        boolean errorQuotation = newQuotation == null;
 
-        if (errorQuotation) {
-            newQuotation = new Quotation(activity.getString(R.string.textView_errorQuotationText), activity.getString(R.string.textView_errorQuotationAuthor));
+        if (newQuotation == null) {
+            showErrorMessage(activity);
+            return;
         }
 
-        Quotation finalNewQuotation = newQuotation;
         activity.runOnUiThread(() -> {
-            activity.showNewQuotation(finalNewQuotation);
+            activity.showNewQuotation(newQuotation);
         });
 
-        if (!errorQuotation && !existsQuotation(activity, newQuotation)) {
+        if (!existsQuotation(activity, newQuotation)) {
             activity.runOnUiThread(() -> {
                 activity.showAddFavouriteQuotationMenuItem();
             });
         }
+    }
+
+    public boolean hasInternetConnection() {
+        boolean result = false;
+        ConnectivityManager manager = (ConnectivityManager) reference.get().getSystemService(CONNECTIVITY_SERVICE);
+
+        if (Build.VERSION.SDK_INT > 22) {
+            final Network activeNetwork = manager.getActiveNetwork();
+            if (activeNetwork != null) {
+                final NetworkCapabilities networkCapabilities = manager.getNetworkCapabilities(activeNetwork);
+                result = networkCapabilities != null && (
+                        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                                networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI));
+            }
+        } else {
+            NetworkInfo info = manager.getActiveNetworkInfo();
+            result = ((info != null) && (info.isConnected()));
+        }
+
+        return result;
     }
 
     private Quotation getNewRandomQuotationFromWebService() {
@@ -114,6 +145,14 @@ public class ShowNewRandomQuotationThread extends Thread {
         }
 
         return newQuotation;
+    }
+
+    private void showErrorMessage(RandomQuotationsActivity activity) {
+        Quotation errorQuotation = new Quotation(activity.getString(R.string.textView_errorQuotationText), activity.getString(R.string.textView_errorQuotationAuthor));
+
+        activity.runOnUiThread(() -> {
+            activity.showNewQuotation(errorQuotation);
+        });
     }
 
     private boolean existsQuotation(RandomQuotationsActivity activity, Quotation newQuotation) {

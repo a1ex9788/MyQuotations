@@ -1,11 +1,6 @@
 package a1ex9788.dadm.myquotations;
 
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkCapabilities;
-import android.net.NetworkInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -102,10 +97,6 @@ public class RandomQuotationsActivity extends AppCompatActivity {
     }
 
     private void showNewRandomQuotation() {
-        if (!hasInternetConnection()) {
-            return;
-        }
-
         new ShowNewRandomQuotationThread(this).start();
     }
 
@@ -129,26 +120,6 @@ public class RandomQuotationsActivity extends AppCompatActivity {
 
         ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-    }
-
-    public boolean hasInternetConnection() {
-        boolean result = false;
-        ConnectivityManager manager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-
-        if (Build.VERSION.SDK_INT > 22) {
-            final Network activeNetwork = manager.getActiveNetwork();
-            if (activeNetwork != null) {
-                final NetworkCapabilities networkCapabilities = manager.getNetworkCapabilities(activeNetwork);
-                result = networkCapabilities != null && (
-                        networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                                networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI));
-            }
-        } else {
-            NetworkInfo info = manager.getActiveNetworkInfo();
-            result = ((info != null) && (info.isConnected()));
-        }
-
-        return result;
     }
 
 }
