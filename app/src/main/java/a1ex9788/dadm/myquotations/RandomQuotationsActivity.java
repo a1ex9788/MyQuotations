@@ -20,7 +20,7 @@ import a1ex9788.dadm.myquotations.threads.ShowNewRandomQuotationThread;
 public class RandomQuotationsActivity extends AppCompatActivity {
 
     private static final String CURRENT_QUOTATION_KEY = "currentQuotation", CURRENT_AUTHOR_KEY = "currentAuthor",
-            CURRENT_QUOTATION_NUMBER_KEY = "currentQuotationNumber", ADD_MENU_ITEM_IS_VISIBLE_KEY = "addMenuItemIsVisible";
+            ADD_MENU_ITEM_IS_VISIBLE_KEY = "addMenuItemIsVisible";
 
     private TextView textView_quotation, textView_author;
     private MenuItem refreshMenuItem, addMenuItem;
@@ -39,7 +39,6 @@ public class RandomQuotationsActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             setHelloMessage();
         } else {
-            String a = savedInstanceState.getString(CURRENT_QUOTATION_KEY);
             textView_quotation.setText(savedInstanceState.getString(CURRENT_QUOTATION_KEY));
             textView_author.setText(savedInstanceState.getString(CURRENT_AUTHOR_KEY));
             addMenuItemIsVisible = savedInstanceState.getBoolean(ADD_MENU_ITEM_IS_VISIBLE_KEY);
