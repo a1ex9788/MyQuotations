@@ -1,5 +1,5 @@
 # MyQuotations
-System to show and save quotations.
+System to get and save famous quotations.
 
 It was a college project.
 
